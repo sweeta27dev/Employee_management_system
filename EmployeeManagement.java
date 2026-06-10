@@ -225,28 +225,7 @@ public class EmployeeManagement {
     }
 
     
-    public static void sortByJoiningDate() {
-        if (empList.isEmpty()) {
-            System.out.println("No Employees Found");
-            return;
-        }
-
-        Collections.sort(empList,
-            Comparator.comparing((Employee emp) -> emp.joiningDate)
-                      .thenComparingInt(emp -> emp.empId)  
-        );
-
-        System.out.println("Employees Sorted By Joining Date Successfully");
-        System.out.println("\n===== SORTED BY JOINING DATE =====");
-        for (Employee emp : empList) {
-            System.out.println("ID: " + emp.empId);
-            System.out.println("Name: " + emp.empName);
-            System.out.println("Salary: " + emp.empSal);
-            System.out.println("Department: " + emp.department);
-            System.out.println("Joining Date: " + emp.joiningDate);
-            System.out.println("----------------------");
-        }
-    }
+  
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -263,8 +242,8 @@ public class EmployeeManagement {
             System.out.println("8.  Sort Employees By Salary");
             System.out.println("9.  Find Highest Paid Employee");
             System.out.println("10. Count Employee Department-Wise");
-            System.out.println("11. Sort Employees By Joining Date");  
-            System.out.println("12. Exit");
+            System.out.println("11. Exit");  
+            
 
             System.out.print("Enter Your Choice: ");
             choice = sc.nextInt();
@@ -301,16 +280,13 @@ public class EmployeeManagement {
                     countByDepartment();
                     break;
                 case 11:
-                    sortByJoiningDate();  
-                    break;
-                case 12:
                     System.out.println("Thank You...");
                     break;
                 default:
                     System.out.println("Invalid Choice");
             }
 
-        } while (choice != 12);
+        } while (choice != 11);
 
         sc.close();
     }
